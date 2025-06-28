@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TaskFlow - Your Tasks</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="profile">
+      <img id="avatar" alt="User Avatar" />
+      <span id="username"></span>
+    </div>
+    <button id="signout">Sign Out</button>
+  </header>
+
+  <main>
+    <section class="task-input-section">
+      <input type="text" id="task-input" placeholder="Add a new task..." />
+      <select id="category-input">
+        <option value="General">General</option>
+        <option value="Work">Work</option>
+        <option value="Personal">Personal</option>
+        <option value="Shopping">Shopping</option>
+        <option value="Other">Other</option>
+      </select>
+      <select id="priority-input">
+        <option value="Low">Low</option>
+        <option value="Medium" selected>Medium</option>
+        <option value="High">High</option>
+      </select>
+      <button id="add-task">Add Task</button>
+    </section>
+    <section class="search-section">
+      <input type="text" id="search-input" placeholder="Search tasks..." />
+    </section>
+
+    <section class="task-board">
+      <div class="task-stage" id="todo-stage">
+        <h2>Todo (<span id="todo-count">0</span>)</h2>
+        <div class="task-list" id="todo-list"></div>
+      </div>
+
+      <div class="task-stage" id="completed-stage">
+        <h2>Completed (<span id="completed-count">0</span>)</h2>
+        <div class="task-list" id="completed-list"></div>
+      </div>
+
+      <div class="task-stage" id="archived-stage">
+        <h2>Archived (<span id="archived-count">0</span>)</h2>
+        <div class="task-list" id="archived-list"></div>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
