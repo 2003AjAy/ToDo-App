@@ -7,19 +7,23 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="container">
-    <h1>Welcome to TaskFlow 👋</h1>
-    <form id="registration-form">
-      <label for="name">Your Name:</label>
-      <input type="text" id="name" placeholder="Enter your name" required />
-
-      <label for="dob">Date of Birth:</label>
-      <input type="date" id="dob" required />
-
-      <button type="submit">Get Started</button>
-
-      <p class="error" id="error-msg"></p>
-    </form>
+  <div class="landing-bg">
+    <div class="landing-hero">
+      <div class="landing-icon">📝</div>
+      <h1>Welcome to <span class="brand">TaskFlow</span> <span class="wave">👋</span></h1>
+      <p class="subtitle">Organize your day, boost your productivity, and never miss a task again.</p>
+    </div>
+    <div class="registration-card">
+      <h2>Get Started</h2>
+      <form id="registration-form">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" placeholder="Enter your name" required />
+        <label for="dob">Date of Birth</label>
+        <input type="date" id="dob" required />
+        <button type="submit">Start Your Journey</button>
+        <p class="error" id="error-msg"></p>
+      </form>
+    </div>
   </div>
 
   <!-- Future localization placeholder -->

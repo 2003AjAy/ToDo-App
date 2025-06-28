@@ -1,4 +1,28 @@
 document.addEventListener('DOMContentLoaded', async () => {
+    // 📌 THEME: Light/Dark Mode
+    const body = document.body;
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeIcon = { light: '🌙', dark: '☀️' };
+    function applyTheme(theme) {
+      body.classList.remove('light-mode', 'dark-mode');
+      body.classList.add(theme + '-mode');
+      // Update all relevant containers and inputs
+      document.querySelectorAll('.container, .task-stage, .task-board, .task-card, #task-input, #search-input, #category-input, #priority-input, .category, .priority').forEach(el => {
+        el.classList.remove('light-mode', 'dark-mode');
+        el.classList.add(theme + '-mode');
+      });
+      if (themeToggle) themeToggle.textContent = theme === 'dark' ? themeIcon.dark : themeIcon.light;
+    }
+    let theme = localStorage.getItem('taskflow-theme') || 'light';
+    applyTheme(theme);
+    if (themeToggle) {
+      themeToggle.addEventListener('click', () => {
+        theme = theme === 'dark' ? 'light' : 'dark';
+        localStorage.setItem('taskflow-theme', theme);
+        applyTheme(theme);
+      });
+    }
+
     // 📌 1. Load user from localStorage
     const user = JSON.parse(localStorage.getItem('taskflow-user'));
     if (!user) {

@@ -1,3 +1,153 @@
+/* Landing Page Styles */
+.landing-bg {
+  min-height: 100vh;
+  width: 100vw;
+  background: linear-gradient(135deg, #e3f6fc 0%, #f6e6ff 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+body.dark-mode .landing-bg {
+  background: linear-gradient(135deg, #23272f 0%, #35324b 100%);
+}
+.landing-hero {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+.landing-icon {
+  font-size: 3.2rem;
+  margin-bottom: 0.7rem;
+  animation: bounceIn 1s;
+}
+@keyframes bounceIn {
+  0% { transform: scale(0.7); opacity: 0; }
+  60% { transform: scale(1.15); opacity: 1; }
+  100% { transform: scale(1); }
+}
+.brand {
+  color: #0D8ABC;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+body.dark-mode .brand {
+  color: #6ec6ff;
+}
+.wave {
+  animation: waveHand 1.1s infinite alternate;
+  display: inline-block;
+}
+@keyframes waveHand {
+  0% { transform: rotate(-10deg); }
+  100% { transform: rotate(18deg); }
+}
+.subtitle {
+  font-size: 1.2rem;
+  color: #444;
+  margin-top: 0.2rem;
+  margin-bottom: 0.6rem;
+}
+body.dark-mode .subtitle {
+  color: #b7d3e7;
+}
+.registration-card {
+  background: #fff;
+  box-shadow: 0 4px 32px rgba(13,138,188,0.12);
+  border-radius: 18px;
+  padding: 2.2rem 2.5rem 1.7rem 2.5rem;
+  max-width: 370px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  transition: background 0.3s, color 0.3s;
+}
+body.dark-mode .registration-card {
+  background: #23272f;
+  color: #e6e6e6;
+  box-shadow: 0 4px 32px rgba(110,198,255,0.08);
+}
+.registration-card h2 {
+  margin-bottom: 1.1rem;
+  color: #0D8ABC;
+  font-weight: 600;
+  font-size: 1.45rem;
+}
+body.dark-mode .registration-card h2 {
+  color: #6ec6ff;
+}
+.registration-card label {
+  display: block;
+  text-align: left;
+  margin-bottom: 0.3rem;
+  margin-top: 1rem;
+  color: #555;
+  font-size: 1rem;
+}
+body.dark-mode .registration-card label {
+  color: #b7d3e7;
+}
+.registration-card input[type="text"], .registration-card input[type="date"] {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1.5px solid #cbe8f6;
+  border-radius: 7px;
+  margin-bottom: 0.7rem;
+  font-size: 1rem;
+  background: #f7fafd;
+  color: #222;
+  transition: border 0.2s, background 0.2s, color 0.2s;
+}
+body.dark-mode .registration-card input[type="text"], body.dark-mode .registration-card input[type="date"] {
+  background: #23272f;
+  color: #e6e6e6;
+  border: 1.5px solid #374e6e;
+}
+.registration-card input[type="text"]::placeholder, .registration-card input[type="date"]::placeholder {
+  color: #aaa;
+}
+body.dark-mode .registration-card input[type="text"]::placeholder, body.dark-mode .registration-card input[type="date"]::placeholder {
+  color: #888;
+}
+.registration-card button[type="submit"] {
+  width: 100%;
+  padding: 0.9rem;
+  margin-top: 0.7rem;
+  background: linear-gradient(90deg, #0D8ABC 60%, #6ec6ff 100%);
+  color: #fff;
+  border: none;
+  border-radius: 7px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(13,138,188,0.09);
+  transition: background 0.3s, transform 0.18s;
+}
+.registration-card button[type="submit"]:hover {
+  background: linear-gradient(90deg, #0972a5 60%, #0D8ABC 100%);
+  transform: translateY(-2px) scale(1.02);
+}
+.registration-card .error {
+  color: #ff4d4d;
+  font-size: 0.95rem;
+  margin-top: 0.5rem;
+}
+@media (max-width: 600px) {
+  .landing-bg {
+    padding: 1.5rem 0.2rem;
+  }
+  .registration-card {
+    padding: 1.2rem 0.7rem 1rem 0.7rem;
+    max-width: 98vw;
+  }
+  .landing-hero {
+    margin-bottom: 1.3rem;
+  }
+  .landing-icon {
+    font-size: 2.2rem;
+  }
+}
+
 /* Header */
 header {
     display: flex;
@@ -6,6 +156,12 @@ header {
     background: #0D8ABC;
     color: #fff;
     padding: 1rem 2rem;
+    position: relative;
+  }
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
   }
   
   .profile {
@@ -314,10 +470,150 @@ header {
     background-color: #ffffff;
     color: #333333;
   }
+  .container.light-mode, .task-stage.light-mode, .task-board.light-mode {
+    background: #fafafa;
+    color: #333;
+  }
+  .task-card.light-mode, .task-card.light-mode p, .task-card.light-mode small, .task-card.light-mode .meta-row, .task-card.light-mode .actions, .task-card.light-mode .category, .task-card.light-mode .priority {
+    color: #222;
+  }
+  .task-card.light-mode .category, .task-card.light-mode .priority {
+    color: #0D8ABC;
+  }
+  .task-card.light-mode .priority-low {
+    color: #2ecc40;
+  }
+  .task-card.light-mode .priority-medium {
+    color: #ff9800;
+  }
+  .task-card.light-mode .priority-high {
+    color: #ff4d4d;
+  }
+  #task-input.light-mode, #search-input.light-mode, #category-input.light-mode, #priority-input.light-mode {
+    color: #222;
+  }
+  #search-input.light-mode::placeholder, #task-input.light-mode::placeholder {
+    color: #888;
+    opacity: 1;
+  }
+  .task-card.light-mode {
+    background: #f7f7f7;
+    color: #222;
+    border-left: 4px solid #0D8ABC;
+  }
+  #task-input.light-mode, #search-input.light-mode, #category-input.light-mode, #priority-input.light-mode {
+    background: #fff;
+    color: #0D8ABC;
+    border: 1px solid #ccc;
+  }
   
   body.dark-mode {
     background-color: #1e1e1e;
     color: #ffffff;
+  }
+  .container.dark-mode, .task-stage.dark-mode, .task-board.dark-mode {
+    background: #23272f;
+    color: #fff;
+  }
+  .task-card.dark-mode, .task-card.dark-mode p, .task-card.dark-mode small, .task-card.dark-mode .meta-row, .task-card.dark-mode .actions {
+    color: #e6e6e6;
+  }
+  .task-card.dark-mode .category, .task-card.dark-mode .priority {
+    color: #6ec6ff;
+  }
+  .task-card.dark-mode .priority-low {
+    color: #2ecc40;
+  }
+  .task-card.dark-mode .priority-medium {
+    color: #ffb347;
+  }
+  .task-card.dark-mode .priority-high {
+    color: #ff4d4d;
+  }
+  #task-input.dark-mode, #search-input.dark-mode, #category-input.dark-mode, #priority-input.dark-mode {
+    color: #e6e6e6;
+  }
+  #search-input.dark-mode::placeholder, #task-input.dark-mode::placeholder {
+    color: #bbb;
+    opacity: 1;
+  }
+  label, .task-stage.dark-mode h2, .task-board.dark-mode h2 {
+    color: #e6e6e6;
+  }
+  .toggle-button.dark-mode {
+    color: #fff;
+  }
+  .task-card.dark-mode {
+    background: #222b38;
+    color: #fff;
+    border-left: 4px solid #0D8ABC;
+  }
+  #task-input.dark-mode, #search-input.dark-mode, #category-input.dark-mode, #priority-input.dark-mode {
+    background: #23272f;
+    color: #fff;
+    border: 1px solid #333;
+  }
+  .task-card .category.dark-mode {
+    background: #21364d;
+    color: #6ec6ff;
+  }
+  .task-card .priority-low.dark-mode {
+    color: #2ecc40;
+    background: #1e2f1e;
+  }
+  .task-card .priority-medium.dark-mode {
+    color: #ffb347;
+    background: #332a1a;
+  }
+  .task-card .priority-high.dark-mode {
+    color: #ff4d4d;
+    background: #3b1f1f;
+  }
+  .toggle-button {
+    background-color: #0D8ABC;
+    color: #ffffff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 1.2rem;
+    margin-left: 1rem;
+  }
+  .toggle-button:hover {
+    background-color: #0972a5;
+  }
+  body.dark-mode .toggle-button {
+    background-color: #23272f;
+    color: #fff;
+    border: 1px solid #0D8ABC;
+  }
+  body.dark-mode .toggle-button:hover {
+    background-color: #0D8ABC;
+    color: #fff;
+  }
+  
+  /* Header Actions */
+  .header-actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .header-actions button {
+    margin-left: 1rem;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .header-actions {
+      flex-direction: column;
+      align-items: flex-end;
+    }
+    .header-actions button {
+      margin-left: 0;
+      margin-bottom: 1rem;
+    }
   }
   
   /* Toggle Button */
