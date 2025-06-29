@@ -5,7 +5,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const errorMsg = document.getElementById('error-msg');
 
     // Auto-redirect if user already exists
-    const existingUser = JSON.parse(localStorage.getItem('taskflow-user'));
+    let existingUser = null;
+    try {
+      const userStr = localStorage.getItem('taskflow-user');
+      if (userStr) {
+        existingUser = JSON.parse(userStr);
+      }
+    } catch (err) {
+      errorMsg.textContent = 'Unable to access browser storage. Please check your browser settings.';
+      return;
+    }
     if (existingUser) {
       window.location.href = 'app.html';
     }
@@ -40,8 +49,12 @@ document.addEventListener('DOMContentLoaded', () => {
         name: name,
         dob: dobInput.value
       };
-      localStorage.setItem('taskflow-user', JSON.stringify(userData));
-
+      try {
+        localStorage.setItem('taskflow-user', JSON.stringify(userData));
+      } catch (err) {
+        errorMsg.textContent = 'Unable to save your data. Please check your browser storage settings.';
+        return;
+      }
       // Redirect to main app
       window.location.href = 'app.html';
     });
